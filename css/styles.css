@@ -1,0 +1,4 @@
+/* PIEZA: Estilos propios (lo que Tailwind no cubre) - Paso 2 */
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+.bg-hero { background-image: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; }
