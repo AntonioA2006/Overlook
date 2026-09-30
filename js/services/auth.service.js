@@ -32,6 +32,7 @@ function updateAuthUI() {
 
 window.loginGenerico = function(provider) {
     let email = 'invitado@overlook.com';
+    let nombre = 'Usuario ' + provider;
     if (provider === 'Apple') email = 'invitado@icloud.com';
     else if (provider === 'Google') email = 'invitado@gmail.com';
     else if (provider === 'Facebook') email = 'invitado@facebook.com';
@@ -40,8 +41,9 @@ window.loginGenerico = function(provider) {
         const input = document.querySelector('#view-login input[type=email]');
         if (!input.value || !input.reportValidity()) return;
         email = input.value.trim().toLowerCase();
+        nombre = email.split('@')[0];
     }
-    const user = { email, nombre: 'Usuario ' + provider };
+    const user = { email, nombre };
     localStorage.setItem('overlook_user', JSON.stringify(user));
     updateAuthUI();
 

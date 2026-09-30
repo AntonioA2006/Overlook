@@ -8,7 +8,7 @@ return `
                     <div>
                         <p class="text-xs tracking-widest text-gray-500 mb-2">${room.pax}</p>
                         <h3 class="text-2xl font-serif text-[#0A2E26] mb-1">${room.name}</h3>
-                        <p class="text-sm italic text-gray-600 mb-2">from ${room.price} a night</p>
+                        <p class="text-sm italic text-gray-600 mb-2">desde ${room.price} por noche</p>
                         <p class="text-xs font-bold ${isSoldOut ? 'text-red-500' : 'text-green-600'} mb-4">
                             ${isSoldOut ? 'Agotada' : 'Disponibles: ' + room.qty}
                         </p>
