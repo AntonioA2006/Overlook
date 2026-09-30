@@ -11,6 +11,11 @@
 
     // 1) Montar HTML
     document.getElementById('navbar-root').innerHTML = Overlook.components.navbar;
+    const navbarEl = document.getElementById('navbar');
+    const applyNavOffset = () => {
+        document.documentElement.style.setProperty('--overlook-nav-h', navbarEl.offsetHeight + 'px');
+    };
+    if (typeof ResizeObserver === 'function') new ResizeObserver(applyNavOffset).observe(navbarEl);
     document.getElementById('modal-root').innerHTML = Overlook.components.cancelModal;
     document.getElementById('app-content').innerHTML = VIEW_ORDER.map(id => Overlook.views[id]).join('\n');
 
@@ -20,6 +25,7 @@
 
     // 3) Estado inicial
     updateAuthUI();
+    applyNavOffset();
     await navigate('home');
     // Las dos listas se cargan concurrentemente; los fallos son independientes.
     window.refreshOverlook = () => Promise.allSettled([renderRooms(), renderReservations()]);

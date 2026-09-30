@@ -26,7 +26,7 @@ Overlook.views.about = `
             </div>
             <!-- Tarjeta 3 -->
             <div class="bg-white/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl p-6 text-center flex flex-col items-center">
-                <img src="https://images.unsplash.com/photo-1572360678255-b4bc2a407e32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Gastronomía" class="w-full h-48 object-cover rounded-2xl mb-6">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Gastronomía" class="w-full h-48 object-cover rounded-2xl mb-6">
                 <h3 class="text-2xl font-serif text-gray-800 mb-4">Gastronomía a la Orilla</h3>
                 <p class="text-gray-700 font-sans text-sm leading-relaxed">Vive experiencias gastronómicas exclusivas. Una cena bajo las estrellas a la orilla de la piscina y a solo unos pasos de la arena. Momentos perfectos para compartir.</p>
             </div>
