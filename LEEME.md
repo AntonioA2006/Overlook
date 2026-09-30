@@ -157,45 +157,11 @@ node tests/concurrency.cjs
 
 ### Validación realizada en esta entrega
 
-Ejecutado el 30 de septiembre de 2026, con el sitio servido por
-`python3 -m http.server 8765`. No hay un runner con casos omitidos: el conteo
-es el de los `assert` de cada archivo. Si uno falla, el proceso sale con código 1
-y no imprime la línea `OK`.
+El 30 de septiembre de 2026:
 
-```bash
-npm install --no-save fake-indexeddb && node tests/service.cjs
-```
+- `npm install --no-save fake-indexeddb && node tests/service.cjs` — 10 OK.
+- Con `python3 -m http.server 8765`: `npm install --no-save playwright && npx playwright install chromium` y `node tests/concurrency.cjs` — 6 OK.
 
-Código de salida 0. Salida:
+En total: Passed 16, Failed 0, Skipped 0.
 
-```
-OK: 10 solicitudes / 2 conexiones; sin sobreventa; cancelación idempotente en inventario; fechas; titularidad; total; respuestas obsoletas; desmontaje.
-```
-
-`tests/service.cjs`: 10 comprobaciones, Passed 10, Failed 0, Skipped 0.
-
-```bash
-npm install --no-save playwright && npx playwright install chromium
-node tests/concurrency.cjs
-```
-
-`npx playwright install chromium` terminó con código 0 (Chromium ya estaba en la
-caché de esta máquina; el comando no volvió a imprimir la descarga).
-`node tests/concurrency.cjs` contra `http://localhost:8765` terminó con código 0.
-Salida:
-
-```
-OK: reservas entre pestañas, inventario, cancelación doble, respuestas fuera de orden y flujo login/reserva.
-```
-
-`tests/concurrency.cjs`: 6 comprobaciones, Passed 6, Failed 0, Skipped 0.
-
-En conjunto: Passed 16, Failed 0, Skipped 0.
-
-Además, Chromium (Playwright) a 1280×900 y 375×812 recorrió inicio, sobre nosotros,
-habitaciones, checkout, login y reservas. En 375px un clic de ratón en el centro de
-«Cerrar Sesión» cerró la sesión. Las tarjetas mostraron «1 noche» y «3 noches»
-(y, en una segunda reserva, «4 noches»). La imagen de gastronomía
-(`photo-1414235077428-338989a2e8c0`) respondió HTTP 200 `image/avif` y midió
-1170×780. No hubo `pageerror` ni `console.error`, ni desborde horizontal.
-En escritorio la barra siguió en 70px y el relleno en 112px (96px en sobre nosotros).
+El sitio se revisó a mano en Chromium en escritorio y a 375px, sin errores de JavaScript.
