@@ -145,18 +145,29 @@ pestañas, agotamiento de existencias, cancelación doble, respuesta fuera de or
 y el flujo de login manual y reserva. Usa un contexto nuevo y no modifica las
 reservas de tu navegador personal.
 
-Con Node.js instalado, `npm install` deja las dependencias de desarrollo
-(`fake-indexeddb` y `playwright`):
+Con Node.js instalado:
 
 ```bash
-npm install
-npm run test:service
+npm install --no-save playwright
 npx playwright install chromium
 python -m http.server 8765
 # En otra terminal, dentro de la misma carpeta:
-npm run test:browser
+node tests/concurrency.cjs
 ```
 
-`test:service` ejecuta `tests/service.cjs` (no necesita servidor).
-`test:browser` ejecuta `tests/concurrency.cjs` contra `OVERLOOK_URL` o
-`http://localhost:8765`.
+### Validación realizada en esta entrega
+
+Pasó la revisión de sintaxis de todos los archivos JS. Se ejecutó
+`tests/service.cjs` con fake-indexeddb: 10 solicitudes desde dos conexiones,
+reservas limitadas a existencias, cancelaciones simultáneas, fechas inválidas,
+titularidad, cálculo del total, respuestas obsoletas y desmontaje.
+La prueba de navegador `tests/concurrency.cjs` está incluida, pero no se pudo
+completar aquí porque la descarga de Chromium falló. Falta verificar visualmente
+la aplicación y ejecutar esa prueba en el equipo receptor.
+
+Para repetir las pruebas del servicio sin navegador:
+
+```bash
+npm install --no-save fake-indexeddb
+node tests/service.cjs
+```
