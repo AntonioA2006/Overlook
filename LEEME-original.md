@@ -2,7 +2,7 @@
 
 Este proyecto venía como **un solo archivo HTML**. Ahora es un **kit de piezas** que se arma paso a paso, como un set de Lego.
 
-- **Piezas:** 21 archivos pequeños (20 JS + 1 CSS), cada uno con una sola responsabilidad.
+- **Piezas:** 20 archivos pequeños (19 JS + 1 CSS), cada uno con una sola responsabilidad.
 - **Modelo terminado:** `index.html` (la "foto de la caja").
 - **Placa base:** `index.base.html` (la página vacía donde empiezas).
 - **Sin instalación:** se abre con doble clic. Solo necesita internet (Tailwind, Google Fonts e imágenes vienen de CDN).
@@ -28,7 +28,6 @@ overlook-kit/
     ├── core/                         EL NÚCLEO
     │   ├── registry.js               "tablero" donde se enchufan componentes y vistas
     │   ├── state.js                  variables compartidas (reserva en curso, etc.)
-    │   ├── storage-init.js           prepara localStorage la primera vez
     │   └── router.js                 navigate(): cambia de vista y pinta el navbar
     ├── services/
     │   └── auth.service.js           login / logout simulado
@@ -78,9 +77,8 @@ Antes de `</body>`, agrega **en este orden**:
 <script src="js/core/registry.js"></script>
 <script src="js/data/rooms.data.js"></script>
 <script src="js/core/state.js"></script>
-<script src="js/core/storage-init.js"></script>
 ```
-✅ **Comprobación:** en la consola, `JSON.parse(localStorage.overlook_rooms).length` debe dar `3`.
+✅ **Comprobación:** en la consola, `defaultRooms.length` debe dar `3`.
 
 ### Paso 4 — Router
 ```html
