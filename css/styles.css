@@ -2,3 +2,10 @@
 body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
 .bg-hero { background-image: url('https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; }
+/* La barra es fixed y en pantallas estrechas los enlaces pasan a varias filas.
+   --overlook-nav-h (main.js) es su altura real. max() conserva pt-24/pt-28 en escritorio. */
+#view-about { padding-top: max(6rem, calc(var(--overlook-nav-h, 0px) + 1rem)); }
+#view-rooms,
+#view-checkout,
+#view-login,
+#view-reservations { padding-top: max(7rem, calc(var(--overlook-nav-h, 0px) + 1rem)); }

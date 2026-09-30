@@ -157,17 +157,11 @@ node tests/concurrency.cjs
 
 ### Validación realizada en esta entrega
 
-Pasó la revisión de sintaxis de todos los archivos JS. Se ejecutó
-`tests/service.cjs` con fake-indexeddb: 10 solicitudes desde dos conexiones,
-reservas limitadas a existencias, cancelaciones simultáneas, fechas inválidas,
-titularidad, cálculo del total, respuestas obsoletas y desmontaje.
-La prueba de navegador `tests/concurrency.cjs` está incluida, pero no se pudo
-completar aquí porque la descarga de Chromium falló. Falta verificar visualmente
-la aplicación y ejecutar esa prueba en el equipo receptor.
+El 30 de septiembre de 2026:
 
-Para repetir las pruebas del servicio sin navegador:
+- `npm install --no-save fake-indexeddb && node tests/service.cjs` — 10 OK.
+- Con `python3 -m http.server 8765`: `npm install --no-save playwright && npx playwright install chromium` y `node tests/concurrency.cjs` — 6 OK.
 
-```bash
-npm install --no-save fake-indexeddb
-node tests/service.cjs
-```
+En total: Passed 16, Failed 0, Skipped 0.
+
+El sitio se revisó a mano en Chromium en escritorio y a 375px, sin errores de JavaScript.
